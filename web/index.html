@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pitchside — Match Insights</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="brand"><span class="logo">◆</span> PITCHSIDE <span class="tag">Synthetic match · all data simulated</span></div>
+  <div class="scoreboard" id="scoreboard">
+    <div class="sb-team home"><span class="swatch" id="home-swatch"></span><span id="home-name">Home</span></div>
+    <div class="sb-score"><span id="score-h">0</span><span class="dash">–</span><span id="score-a">0</span></div>
+    <div class="sb-team away"><span id="away-name">Away</span><span class="swatch" id="away-swatch"></span></div>
+    <div class="sb-clock"><span id="clock">00:00</span><span id="period" class="period">1H</span></div>
+  </div>
+  <div class="agents-pill" id="agents-pill" title="Agent pipeline status">Agents: <b id="provider">…</b> · <span id="agent-stats">0 insights</span></div>
+</header>
+
+<main class="layout">
+  <section class="stage">
+    <div class="pitch-wrap" id="pitch-wrap">
+      <canvas id="pitch"></canvas>
+      <div class="lower-third" id="lower-third" hidden>
+        <div class="lt-kicker"><span id="lt-kind"></span><span class="verified" id="lt-verified">✓ verified</span></div>
+        <div class="lt-headline" id="lt-headline"></div>
+        <div class="lt-line" id="lt-line"></div>
+      </div>
+      <div class="focus-chip" id="focus-chip" hidden></div>
+    </div>
+
+    <div class="transport">
+      <button id="play" class="icon-btn" aria-label="Pause">❚❚</button>
+      <div class="scrub" id="scrub"><div class="scrub-fill" id="scrub-fill"></div><div class="scrub-marks" id="scrub-marks"></div></div>
+      <div class="speeds" id="speeds">
+        <button data-speed="1">1×</button><button data-speed="4">4×</button><button data-speed="8" class="on">8×</button><button data-speed="20">20×</button><button data-speed="45">45×</button>
+      </div>
+    </div>
+
+    <div class="gauges">
+      <div class="gauge-card wide">
+        <div class="gc-title">Momentum <span class="hint">threat balance · last 5 min</span></div>
+        <canvas id="momentum" height="70"></canvas>
+      </div>
+      <div class="gauge-card">
+        <div class="gc-title">Control ↔ Chaos <span class="hint">turnover rate vs league</span></div>
+        <div class="meter"><div class="meter-marker" id="chaos-marker"></div></div>
+        <div class="meter-labels"><span>Control</span><b id="chaos-val">–</b><span>Chaos</span></div>
+      </div>
+      <div class="gauge-card">
+        <div class="gc-title">Press intensity <span class="hint">league percentile</span></div>
+        <div class="bars" id="press-bars"></div>
+      </div>
+      <div class="gauge-card">
+        <div class="gc-title">Tempo <span class="hint">passes per minute on the ball</span></div>
+        <div class="bars" id="tempo-bars"></div>
+      </div>
+    </div>
+  </section>
+
+  <aside class="side">
+    <div class="persona card">
+      <div class="card-title">Make it yours</div>
+      <div class="seg" id="mode-seg" role="radiogroup" aria-label="Viewing mode">
+        <button data-mode="casual" class="on">Casual fan</button>
+        <button data-mode="analyst">Analyst</button>
+      </div>
+      <div class="controls">
+        <label>Club <select id="club"><option value="">Neutral</option></select></label>
+        <label>Player focus <select id="player"><option value="">Off</option></select></label>
+        <label>Language <select id="language">
+          <option value="en">English</option><option value="es">Español</option><option value="fr">Français</option>
+          <option value="pt">Português</option><option value="de">Deutsch</option><option value="ar">العربية</option>
+          <option value="hi">हिन्दी</option><option value="ja">日本語</option></select></label>
+        <label>Metric I care about <select id="metric"><option value="">None</option><option value="xg">Chance quality (xG)</option>
+          <option value="speed">Speed</option><option value="passing">Passing</option><option value="pressing">Pressing</option></select></label>
+      </div>
+      <label class="toggle"><input type="checkbox" id="voice"> Read insights aloud</label>
+      <div class="lang-note" id="lang-note" hidden>Offline mode writes English and Spanish; other languages need a model provider.</div>
+    </div>
+
+    <div class="focus-card card" id="focus-card" hidden></div>
+
+    <div class="tabs" role="tablist">
+      <button class="on" data-tab="story">Live story</button>
+      <button data-tab="stats">Stats</button>
+      <button data-tab="feed">Overlay feed</button>
+    </div>
+    <div class="tab-body" id="tab-story"><div id="feed" class="feed"><div class="empty">Insights appear here as the match unfolds.</div></div></div>
+    <div class="tab-body" id="tab-stats" hidden><table class="stats" id="stats-table"></table></div>
+    <div class="tab-body" id="tab-feed" hidden>
+      <p class="hint">Timed, machine-readable cues as a graphics renderer receives them. Full-match track: <a id="track-link" href="/api/overlay-track" target="_blank">/api/overlay-track</a></p>
+      <pre id="cue-log" class="cue-log"></pre>
+    </div>
+  </aside>
+</main>
+<script src="/static/app.js"></script>
+</body>
+</html>

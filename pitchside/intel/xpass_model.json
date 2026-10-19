@@ -1,0 +1,27 @@
+{
+  "features": [
+    "bias",
+    "length_over_10m",
+    "lane_opponents",
+    "passer_pressed",
+    "receiver_marked",
+    "bypassed_over_3",
+    "into_box",
+    "forward_over_10m"
+  ],
+  "coef": [
+    3.093,
+    -0.5484,
+    0.204,
+    -0.5125,
+    -1.6406,
+    0.2678,
+    -1.4217,
+    -0.078
+  ],
+  "meta": {
+    "matches": 30,
+    "passes": 42037,
+    "xpass_test_auc": 0.698
+  }
+}

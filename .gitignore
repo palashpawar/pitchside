@@ -1,0 +1,10 @@
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+data/match_*.npz
+data/match_*.json
+data/llm_cache.jsonl
+.env
+.claude/
+.azure/

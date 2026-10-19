@@ -1,0 +1,6 @@
+agent-framework-core==1.22.0
+agent-framework-openai==1.17.0
+fastapi==0.141.1
+uvicorn[standard]==0.54.0
+numpy==2.5.4
+httpx==0.28.1

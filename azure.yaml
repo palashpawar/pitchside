@@ -1,0 +1,12 @@
+# Azure Developer CLI: `azd up` provisions infra/main.bicep and deploys the container.
+name: pitchside
+services:
+  web:
+    project: .
+    language: docker
+    host: containerapp
+    docker:
+      path: ./Dockerfile
+infra:
+  provider: bicep
+  path: infra

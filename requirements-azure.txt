@@ -1,0 +1,3 @@
+# Optional: Entra ID auth for Azure OpenAI and the Event Hubs transport
+azure-identity==1.26.0
+azure-eventhub==5.15.1

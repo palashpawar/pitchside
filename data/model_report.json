@@ -1,0 +1,75 @@
+{
+  "matches": 30,
+  "passes": 42037,
+  "completion_rate": 0.791,
+  "xpass_test_auc": 0.698,
+  "xpass_test_brier": 0.1476,
+  "xpass_calibration": [
+    {
+      "bin": "0.0-0.1",
+      "n": 31,
+      "predicted": 0.069,
+      "observed": 0.0
+    },
+    {
+      "bin": "0.1-0.2",
+      "n": 39,
+      "predicted": 0.16,
+      "observed": 0.0
+    },
+    {
+      "bin": "0.2-0.3",
+      "n": 53,
+      "predicted": 0.254,
+      "observed": 0.094
+    },
+    {
+      "bin": "0.3-0.4",
+      "n": 64,
+      "predicted": 0.353,
+      "observed": 0.281
+    },
+    {
+      "bin": "0.4-0.5",
+      "n": 198,
+      "predicted": 0.454,
+      "observed": 0.424
+    },
+    {
+      "bin": "0.5-0.6",
+      "n": 420,
+      "predicted": 0.556,
+      "observed": 0.514
+    },
+    {
+      "bin": "0.6-0.7",
+      "n": 891,
+      "predicted": 0.654,
+      "observed": 0.653
+    },
+    {
+      "bin": "0.7-0.8",
+      "n": 1610,
+      "predicted": 0.756,
+      "observed": 0.784
+    },
+    {
+      "bin": "0.8-0.9",
+      "n": 3234,
+      "predicted": 0.857,
+      "observed": 0.856
+    },
+    {
+      "bin": "0.9-1.0",
+      "n": 1868,
+      "predicted": 0.927,
+      "observed": 0.884
+    }
+  ],
+  "auto_eventing_possession_changes": {
+    "precision": 0.603,
+    "recall": 0.79,
+    "tolerance_s": 5.0
+  },
+  "goals_per_match": 3.77
+}
